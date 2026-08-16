@@ -1,0 +1,338 @@
+<title>Data Safety y Clasificación de Contenido</title>
+<style>
+  :root {
+    --bg: #faf6ef;
+    --surface: #ffffff;
+    --surface-2: #f1e8d9;
+    --text: #211d1a;
+    --text-muted: #6b5d52;
+    --border: #e3d8c8;
+    --accent: #2f8fd6;
+    --accent-ink: #14507f;
+    --accent-soft: #e3f0fb;
+    --good: #2f7a4d;
+    --good-soft: #e4f3e8;
+    --warn: #9a6a1f;
+    --warn-soft: #fbeed9;
+    --font-display: 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211d1a;
+      --surface: #2a2624;
+      --surface-2: #332d29;
+      --text: #f3ece2;
+      --text-muted: #b8ab9e;
+      --border: #3c3530;
+      --accent: #5fb0ef;
+      --accent-ink: #bfe1fa;
+      --accent-soft: #223345;
+      --good: #6fce93;
+      --good-soft: #1e3327;
+      --warn: #e0a94f;
+      --warn-soft: #3a2c17;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211d1a;
+    --surface: #2a2624;
+    --surface-2: #332d29;
+    --text: #f3ece2;
+    --text-muted: #b8ab9e;
+    --border: #3c3530;
+    --accent: #5fb0ef;
+    --accent-ink: #bfe1fa;
+    --accent-soft: #223345;
+    --good: #6fce93;
+    --good-soft: #1e3327;
+    --warn: #e0a94f;
+    --warn-soft: #3a2c17;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    margin: 0;
+    padding: 0 20px 96px;
+  }
+  .page { max-width: 780px; margin: 0 auto; }
+
+  header.doc-head { padding: 56px 0 28px; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.6vw, 38px);
+    line-height: 1.15;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  header.doc-head > p { max-width: 62ch; color: var(--text-muted); margin: 0; }
+
+  .disclaimer {
+    margin: 28px 0 8px;
+    padding: 16px 20px;
+    background: var(--warn-soft);
+    border: 1px solid var(--warn);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .disclaimer strong { color: var(--warn); }
+
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 28px 0 8px;
+  }
+  nav.toc a {
+    font-size: 13px;
+    color: var(--accent-ink);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    text-decoration: none;
+  }
+
+  section.block { margin-top: 52px; }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    margin: 0 0 6px;
+  }
+  .section-sub { color: var(--text-muted); font-size: 14px; margin: 0 0 22px; max-width: 64ch; }
+
+  .qa {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 0 0 14px;
+  }
+  .qa .q {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .qa .answer-row { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; flex-wrap: wrap; }
+  .pill {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 13px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .pill.good { background: var(--good-soft); color: var(--good); }
+  .qa p.why { margin: 0; font-size: 14px; color: var(--text-muted); max-width: 66ch; }
+
+  .checklist {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .checklist h3 { margin: 0 0 4px; font-size: 15px; }
+  .checklist p.lead { margin: 0 0 14px; font-size: 13.5px; color: var(--text-muted); }
+  .checklist ul { margin: 0; padding-left: 0; list-style: none; }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .checklist li:first-child { border-top: none; }
+  .checklist li .box {
+    flex: 0 0 auto;
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>
+
+<div class="page">
+  <header class="doc-head">
+    <p class="eyebrow">Guía interna — no es un formulario oficial</p>
+    <h1>Data Safety y Clasificación de Contenido</h1>
+    <p>
+      Respuestas recomendadas para los dos formularios de Play Console que le faltan a
+      <strong>La Family: Historias</strong>: la ficha de seguridad de datos ("Data safety") y el
+      cuestionario de clasificación de contenido (IARC). Basadas en una revisión directa del código
+      — permisos declarados, qué se guarda dónde, y qué servicios externos se usan.
+    </p>
+  </header>
+
+  <div class="disclaimer">
+    <strong>Antes de usar esto:</strong> los dos formularios reales viven dentro de Play Console y
+    Google puede cambiar su redacción exacta con el tiempo. Esto es una guía para rellenarlos con
+    criterio, no un envío automático ni un sustituto de leer cada pregunta tal como aparece en
+    pantalla — sobre todo en el cuestionario de contenido, donde solo se revisaron las sinopsis y
+    la estructura de las historias, no cada línea de guion palabra por palabra.
+  </div>
+
+  <nav class="toc">
+    <a href="#data-safety">Data Safety</a>
+    <a href="#content-rating">Clasificación de contenido</a>
+    <a href="#antes-de-enviar">Antes de enviar</a>
+  </nav>
+
+  <section class="block" id="data-safety">
+    <h2 class="section-title">1. Data Safety</h2>
+    <p class="section-sub">Play Console → tu app → Política y programas → Seguridad de los datos.</p>
+
+    <div class="qa">
+      <p class="q">¿Tu app recopila o comparte alguno de los tipos de datos de usuario requeridos?</p>
+      <div class="answer-row"><span class="pill">Sí</span></div>
+      <p class="why">Por las compras (Google Play Billing) y los anuncios (AdMob), aunque casi todo lo demás se queda en el dispositivo.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Ubicación</p>
+      <div class="answer-row"><span class="pill good">No se recopila</span></div>
+      <p class="why">La app no pide ni lee la ubicación del dispositivo.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Información personal (nombre, email, dirección…)</p>
+      <div class="answer-row"><span class="pill good">No se recopila</span></div>
+      <p class="why">El nombre de perfil y la biografía son texto que el usuario elige libremente y se guarda solo en el dispositivo — no se transmite a ningún servidor, así que no cuenta como "recopilado" por ti.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Fotos y vídeos</p>
+      <div class="answer-row"><span class="pill">Se procesa, no se comparte</span></div>
+      <p class="why">La app accede a la galería para elegir el avatar y para guardar las fotos tomadas con la cámara. Todo queda en el dispositivo del usuario — no se sube a ningún servidor propio ni de terceros.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Identificadores de dispositivo o publicidad</p>
+      <div class="answer-row"><span class="pill">Sí, compartido con terceros</span></div>
+      <p class="why">Google AdMob usa el identificador de publicidad del dispositivo para mostrar anuncios. Declara este dato como compartido con AdMob, con la finalidad "Publicidad o marketing".</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Historial de compras</p>
+      <div class="answer-row"><span class="pill">Sí, gestionado por Google Play</span></div>
+      <p class="why">Las compras las procesa Google Play Billing directamente — la app solo recibe el resultado (qué se compró), no datos de pago.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Contenido generado por el usuario compartido con otros usuarios</p>
+      <div class="answer-row"><span class="pill good">No aplica</span></div>
+      <p class="why">Es una experiencia de un solo jugador. El texto libre que escribe el usuario nunca se muestra a otros usuarios ni sale del dispositivo.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">¿Los datos se cifran en tránsito?</p>
+      <div class="answer-row"><span class="pill">Sí, para lo que sí viaja por red</span></div>
+      <p class="why">Las comunicaciones con Google Play Billing y AdMob usan HTTPS por defecto (gestionado por esas librerías, no hace falta configurarlo).</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">¿Puede el usuario pedir que se borren sus datos?</p>
+      <div class="answer-row"><span class="pill good">Sí, desinstalando la app</span></div>
+      <p class="why">Como todo se guarda localmente, borrar los datos es tan simple como desinstalar la app o borrar su almacenamiento — no hay una cuenta en un servidor que deba borrarse aparte.</p>
+    </div>
+  </section>
+
+  <section class="block" id="content-rating">
+    <h2 class="section-title">2. Cuestionario de clasificación de contenido (IARC)</h2>
+    <p class="section-sub">Play Console → tu app → Política y programas → Clasificación de contenido. Categoría de app: Aplicación → Entretenimiento / Novela visual interactiva.</p>
+
+    <div class="qa">
+      <p class="q">Violencia</p>
+      <div class="answer-row"><span class="pill">Terror / sustos leves-moderados</span></div>
+      <p class="why">Historias con fantasmas, monstruos y desapariciones (Mano Peluda, Hotel Perdido, La Mansión Abandonada, La Casa Embrujada), pero sin descripciones gráficas de sangre ni violencia realista contra personas. Marca "violencia fantástica/de terror", no "violencia gráfica intensa".</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Miedo / temática de terror</p>
+      <div class="answer-row"><span class="pill">Sí, presente</span></div>
+      <p class="why">Es un género central del catálogo — decláralo explícitamente donde el formulario lo pregunte por separado de "violencia".</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Sexualidad</p>
+      <div class="answer-row"><span class="pill good">Ninguna / solo romance leve</span></div>
+      <p class="why">"Viaje escolar" tiene finales románticos entre personajes adolescentes, pero sin contenido sexual explícito ni desnudos. Marca como "referencias románticas", no como contenido sexual.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Lenguaje soez</p>
+      <div class="answer-row"><span class="pill good">Ninguno / mínimo</span></div>
+      <p class="why">El propio motor modera y filtra el lenguaje ofensivo que escribe el usuario. No hay evidencia de lenguaje fuerte en los guiones escritos por ti — revisa tus propios textos si tienes dudas sobre alguna línea puntual.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Sustancias controladas (drogas, alcohol, tabaco)</p>
+      <div class="answer-row"><span class="pill good">Ninguna</span></div>
+      <p class="why">No aparecen en las sinopsis ni en la estructura de las historias revisadas.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Apuestas / contenido de azar</p>
+      <div class="answer-row"><span class="pill good">Ninguno</span></div>
+      <p class="why">No hay mecánicas de azar con dinero real ni simulado.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Compras dentro de la app</p>
+      <div class="answer-row"><span class="pill">Sí</span></div>
+      <p class="why">Historias individuales (US$1.99–4.99) y planes de suscripción/lifetime. Es obligatorio declararlo.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Interacción entre usuarios / uso compartido de ubicación</p>
+      <div class="answer-row"><span class="pill good">Ninguno</span></div>
+      <p class="why">No hay chat entre usuarios reales, ni multijugador, ni intercambio de ubicación.</p>
+    </div>
+
+    <div class="qa">
+      <p class="q">Publicidad no controlada por el desarrollador</p>
+      <div class="answer-row"><span class="pill">Sí, vía AdMob</span></div>
+      <p class="why">Los anuncios los sirve la red de AdMob, no tú directamente — declárate como app con publicidad de terceros.</p>
+    </div>
+  </section>
+
+  <section class="block" id="antes-de-enviar">
+    <h2 class="section-title">3. Antes de enviar cualquiera de los dos</h2>
+    <div class="checklist">
+      <h3>Dos cosas que encontré en el código y afectan directamente a estas respuestas</h3>
+      <p class="lead">Corrígelas antes de publicar — si no, lo que declares aquí dejaría de ser exacto.</p>
+      <ul>
+        <li><span class="box"></span> Los IDs de AdMob en <code>app.json</code> son los IDs de <strong>prueba</strong> públicos de Google (<code>ca-app-pub-3940256099942544~…</code>). Reemplázalos por los reales de tu cuenta de AdMob antes de publicar — con los de prueba, la respuesta "Sí, hay publicidad de terceros" sería técnicamente falsa en la versión que subas.</li>
+        <li><span class="box"></span> El permiso <code>RECORD_AUDIO</code> está declarado en <code>app.json</code> pero no encontré ningún código que grabe audio del usuario — solo se reproduce audio ya grabado en las historias. Si de verdad no se usa, quítalo del manifiesto: un permiso "de más" puede generar preguntas en la revisión de Play y en el propio formulario de Data Safety.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    La Family: Historias — Guía interna de publicación · No sustituye la lectura del formulario real en Play Console
+  </footer>
+</div>
