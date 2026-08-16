@@ -1,0 +1,308 @@
+<title>Política de Privacidad de La Family: Historias</title>
+<style>
+  :root {
+    --bg: #faf6ef;
+    --surface: #ffffff;
+    --surface-2: #f1e8d9;
+    --text: #211d1a;
+    --text-muted: #6b5d52;
+    --border: #e3d8c8;
+    --accent: #2f8fd6;
+    --accent-ink: #14507f;
+    --good: #2f7a4d;
+    --font-display: 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #211d1a;
+      --surface: #2a2624;
+      --surface-2: #332d29;
+      --text: #f3ece2;
+      --text-muted: #b8ab9e;
+      --border: #3c3530;
+      --accent: #5fb0ef;
+      --accent-ink: #bfe1fa;
+      --good: #6fce93;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #211d1a;
+    --surface: #2a2624;
+    --surface-2: #332d29;
+    --text: #f3ece2;
+    --text-muted: #b8ab9e;
+    --border: #3c3530;
+    --accent: #5fb0ef;
+    --accent-ink: #bfe1fa;
+    --good: #6fce93;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+  }
+  .page { max-width: 700px; margin: 0 auto; }
+
+  header.doc-head { padding: 64px 0 32px; border-bottom: 1px solid var(--border); }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 42px);
+    line-height: 1.15;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .meta strong { color: var(--text); font-weight: 600; }
+
+  .summary {
+    margin: 36px 0 8px;
+    padding: 22px 24px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .summary h2 {
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 12px;
+  }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li { margin: 6px 0; }
+
+  section { margin-top: 44px; }
+  h2.clause {
+    font-family: var(--font-display);
+    font-size: 22px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  h2.clause .num {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  p { margin: 0 0 14px; max-width: 66ch; }
+  ul.list, ol.list { margin: 0 0 14px; padding-left: 22px; max-width: 66ch; }
+  ul.list li, ol.list li { margin: 8px 0; }
+  strong { font-weight: 600; }
+  a { color: var(--accent-ink); text-decoration-color: var(--border); text-underline-offset: 2px; }
+  a:hover { text-decoration-color: currentColor; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 0 0 16px;
+  }
+  .card h3 {
+    font-size: 14.5px;
+    margin: 0 0 6px;
+  }
+  .card p { margin: 0; font-size: 14.5px; color: var(--text-muted); }
+
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+
+  .not-badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--good);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin: 3px 8px 3px 0;
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 480px) {
+    header.doc-head { padding: 44px 0 26px; }
+    section { margin-top: 34px; }
+  }
+</style>
+
+<div class="page">
+  <header class="doc-head">
+    <p class="eyebrow">Documento legal</p>
+    <h1>Política de Privacidad</h1>
+    <div class="meta">
+      <span><strong>App:</strong> La Family: Historias</span>
+      <span><strong>Última actualización:</strong> 16 de agosto de 2026</span>
+      <span><strong>Contacto:</strong> <a href="mailto:theraptorgameplay@gmail.com">theraptorgameplay@gmail.com</a></span>
+    </div>
+  </header>
+
+  <div class="summary">
+    <h2>En resumen</h2>
+    <ul>
+      <li>Todo lo que escribes o guardas en la app (perfil, avatar, progreso de las historias) se queda <strong>en tu propio dispositivo</strong>. No tenemos servidores propios ni base de datos en la nube.</li>
+      <li>No hay cuentas ni inicio de sesión: no pedimos tu correo, teléfono ni ubicación.</li>
+      <li>Lo que escribes para tomar decisiones en las historias lo procesa el propio dispositivo — no se envía a ningún servicio de inteligencia artificial ni a terceros.</li>
+      <li>Usamos dos servicios externos de Google: <strong>Google Play Billing</strong> para las compras y <strong>Google AdMob</strong> para mostrar anuncios.</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2 class="clause"><span class="num">1</span>Quiénes somos</h2>
+    <p>
+      La Family: Historias es una aplicación de historias interactivas desarrollada por
+      <strong>raptor2424</strong> ("nosotros"). Esta política explica qué información trata la app,
+      cómo la trata y qué opciones tienes al respecto. Aplica a todas las versiones de la app
+      disponibles en Google Play.
+    </p>
+    <p>
+      Si tienes dudas sobre esta política, puedes escribirnos a
+      <a href="mailto:theraptorgameplay@gmail.com">theraptorgameplay@gmail.com</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">2</span>Información que tratamos</h2>
+    <p>Toda la información de esta sección se guarda <strong>localmente en tu dispositivo</strong>, en una base de datos privada de la app, salvo que se indique lo contrario.</p>
+
+    <div class="card">
+      <h3>Tu perfil</h3>
+      <p>Nombre de usuario, biografía opcional y foto de avatar (elegida de tu galería o tomada con la cámara). Se usan únicamente para mostrarte identificado dentro de la propia app.</p>
+    </div>
+    <div class="card">
+      <h3>Fotos de la pantalla Cámara</h3>
+      <p>Las fotos que te tomas posando con los stickers de personajes se guardan directamente en la galería de tu dispositivo. No pasan por ningún servidor nuestro.</p>
+    </div>
+    <div class="card">
+      <h3>Progreso de las historias</h3>
+      <p>Tus decisiones, capítulos completados, finales alcanzados y mensajes de chat con los personajes, para que puedas continuar donde lo dejaste.</p>
+    </div>
+    <div class="card">
+      <h3>Texto libre en las decisiones</h3>
+      <p>Cuando escribes una respuesta libre para decidir el rumbo de una historia, ese texto se analiza <strong>en el propio dispositivo</strong> mediante reglas fijas (no inteligencia artificial en la nube) para elegir la siguiente escena y, si hace falta, para filtrar lenguaje ofensivo. Nunca sale de tu teléfono.</p>
+    </div>
+    <div class="card">
+      <h3>Compras</h3>
+      <p>Si compras una historia o un plan, la compra la procesa <strong>Google Play Billing</strong>. Nosotros solo recibimos la confirmación de qué se compró, nunca tus datos de pago (número de tarjeta, etc.) — esos los gestiona Google directamente.</p>
+    </div>
+    <div class="card">
+      <h3>Anuncios</h3>
+      <p><strong>Google AdMob</strong> muestra anuncios en la app (mientras no tengas un plan sin publicidad). AdMob puede usar tu identificador de publicidad y datos de uso del dispositivo para mostrar anuncios, en ocasiones personalizados según tus intereses.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">3</span>Lo que no hacemos</h2>
+    <span class="not-badge">Sin cuentas ni login</span>
+    <span class="not-badge">Sin recopilar correo o teléfono</span>
+    <span class="not-badge">Sin ubicación</span>
+    <span class="not-badge">Sin compartir tu contenido con otros usuarios</span>
+    <span class="not-badge">Sin IA en la nube para tu texto</span>
+    <p style="margin-top: 14px;">
+      La Family: Historias es una experiencia de un solo jugador. Los personajes con los que chateas
+      son ficticios y están controlados por el motor de la historia — nada de lo que escribes se
+      muestra a otras personas ni a otros usuarios de la app.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">4</span>Permisos del dispositivo</h2>
+    <table>
+      <tr><th>Permiso</th><th>Para qué lo usamos</th></tr>
+      <tr><td>Cámara</td><td>Tomar fotos posando con los stickers de personajes.</td></tr>
+      <tr><td>Fotos / galería</td><td>Elegir tu avatar y guardar las fotos que tomes en la app.</td></tr>
+      <tr><td>Reproducción de audio</td><td>Reproducir los mensajes de audio de las historias.</td></tr>
+      <tr><td>Notificaciones</td><td>Recordatorios programados en tu propio dispositivo (por ejemplo, que una historia sigue esperándote). No usamos un servidor externo para enviarlas.</td></tr>
+    </table>
+    <p>Puedes conceder o retirar estos permisos en cualquier momento desde los ajustes de tu sistema operativo.</p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">5</span>Servicios de terceros</h2>
+    <p>Usamos dos servicios de Google, cada uno bajo su propia política de privacidad:</p>
+    <ul class="list">
+      <li><strong>Google Play Billing</strong> — procesa las compras dentro de la app. Consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Google</a>.</li>
+      <li><strong>Google AdMob</strong> — muestra los anuncios. Puedes gestionar la personalización de anuncios desde los ajustes de tu cuenta de Google o desde los ajustes de anuncios de tu dispositivo. Más información en la <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">política de datos de AdMob</a>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">6</span>Menores de edad</h2>
+    <p>
+      La Family: Historias está clasificada para mayores de 13 años debido a temas de terror y
+      drama presentes en algunas historias. No solicitamos deliberadamente información de menores
+      de 13 años y no permitimos crear un perfil sin aceptar los términos de uso.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">7</span>Conservación y seguridad de tus datos</h2>
+    <p>
+      Toda la información descrita en la sección 2 (salvo compras y publicidad) permanece
+      almacenada localmente en tu dispositivo mientras la app esté instalada. Si desinstalas la
+      app, esos datos se eliminan junto con ella. No mantenemos copias en ningún servidor propio.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">8</span>Tus opciones</h2>
+    <ul class="list">
+      <li>Puedes usar la app sin conceder los permisos de cámara o galería — simplemente no podrás usar la pantalla Cámara.</li>
+      <li>Puedes borrar todos tus datos locales desinstalando la app o borrando el almacenamiento de la app desde los ajustes de tu dispositivo.</li>
+      <li>Puedes desactivar la personalización de anuncios desde los ajustes de anuncios de tu cuenta de Google.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">9</span>Cambios a esta política</h2>
+    <p>
+      Si actualizamos esta política, cambiaremos la fecha en la parte superior de este documento.
+      Te recomendamos revisarla de vez en cuando, especialmente antes de una actualización mayor de
+      la app.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="clause"><span class="num">10</span>Contacto</h2>
+    <p>
+      Para cualquier pregunta sobre esta política o sobre tus datos, escríbenos a
+      <a href="mailto:theraptorgameplay@gmail.com">theraptorgameplay@gmail.com</a>.
+    </p>
+  </section>
+
+  <footer>
+    La Family: Historias — Política de Privacidad · Última actualización: 16 de agosto de 2026
+  </footer>
+</div>
